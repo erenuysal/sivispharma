@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 type Props = {
   slides: string[];
   intervalMs?: number;
-  /** stage = packshot on dark stage (banner); cover = full-bleed crop */
-  mode?: "stage" | "cover";
+  /** stage = floating packshot; ambient = soft background wash */
+  mode?: "stage" | "ambient";
   veil?: "soft" | "strong" | "left" | "none";
   className?: string;
   showDots?: boolean;
@@ -12,7 +12,7 @@ type Props = {
 
 export function BannerSlideshow({
   slides,
-  intervalMs = 4200,
+  intervalMs = 4800,
   mode = "stage",
   veil = "soft",
   className = "",
@@ -30,15 +30,15 @@ export function BannerSlideshow({
 
   return (
     <div className={`banner-show banner-show--${mode} ${className}`}>
+      <div className="banner-show__glow" aria-hidden />
       <div className="banner-show__stage" aria-hidden>
         {slides.map((src, i) => (
-          <div
-            key={src}
-            className={`banner-show__slide ${i === index ? "is-active" : ""} ${
-              i === (index - 1 + slides.length) % slides.length ? "is-exit" : ""
-            }`}
-          >
-            <img src={src} alt="" className="banner-show__img" />
+          <div key={src} className={`banner-show__slide ${i === index ? "is-active" : ""}`}>
+            <div className="packshot">
+              <div className="packshot__bloom" />
+              <img src={src} alt="" className="packshot__img" />
+              <div className="packshot__reflect" />
+            </div>
           </div>
         ))}
         {veil !== "none" ? <div className={`banner-show__veil banner-show__veil--${veil}`} /> : null}

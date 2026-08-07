@@ -26,7 +26,11 @@ export function ProductDetail() {
         <section className="profile">
           <div className="profile__visual anim-rise">
             <div className="profile__shot">
-              <img src={product.image} alt={product.name} className="profile__img" />
+              <div className="packshot packshot--profile">
+                <div className="packshot__bloom" />
+                <img src={product.image} alt={product.name} className="packshot__img profile__img" />
+                <div className="packshot__reflect" />
+              </div>
             </div>
           </div>
 
@@ -89,7 +93,7 @@ export function ProductDetail() {
                 <Reveal key={p.slug} delay={i * 70}>
                   <Link to={`/urun/${p.slug}`} className="product-tile">
                     <div className="product-tile__media">
-                      <PhotoBanner src={p.image} motion="float" darken="none" />
+                      <PhotoBanner src={p.image} motion="float" variant="card" />
                     </div>
                     <div className="product-tile__body">
                       <span className="product-tile__cat">{p.category}</span>

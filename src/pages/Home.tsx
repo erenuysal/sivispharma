@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { brand, categories, heroSlides, products } from "../data/products";
 import { Reveal } from "../components/Reveal";
-import { HeroSlideshow } from "../components/HeroSlideshow";
+import { HeroShowcase } from "../components/HeroShowcase";
 import { BannerSlideshow } from "../components/BannerSlideshow";
 import { PhotoBanner } from "../components/PhotoBanner";
 
@@ -12,31 +12,7 @@ const exportSlides = [...heroSlides].reverse().slice(0, 6);
 export function Home() {
   return (
     <>
-      <section className="hero">
-        <HeroSlideshow slides={heroSlides} />
-        <div className="hero__content">
-          <img src={brand.logo} alt={brand.name} className="hero__logo anim-rise" />
-          <h1 className="hero__brand anim-rise anim-delay-1">{brand.name}</h1>
-          <p className="hero__title anim-rise anim-delay-2">
-            Sağlığınız için
-            <em> net, orijinal</em> çözümler
-          </p>
-          <p className="hero__sub anim-rise anim-delay-3">
-            Uzman eczacı formülleriyle vitamin ve takviye ürünlerini keşfedin.
-          </p>
-          <div className="hero__actions anim-rise anim-delay-3">
-            <Link to="/urunler" className="btn btn--solid">
-              Ürünleri Keşfet
-            </Link>
-            <Link to="/iletisim" className="btn btn--ghost">
-              İhracat & İletişim
-            </Link>
-          </div>
-        </div>
-        <div className="hero__scroll" aria-hidden>
-          <span />
-        </div>
-      </section>
+      <HeroShowcase slides={heroSlides} />
 
       <section className="ticker" aria-hidden>
         <div className="ticker__track">
@@ -79,7 +55,7 @@ export function Home() {
               <Reveal key={p.slug} delay={i * 70}>
                 <Link to={`/urun/${p.slug}`} className="product-tile">
                   <div className="product-tile__media">
-                    <PhotoBanner src={p.image} motion="float" darken="none" />
+                    <PhotoBanner src={p.image} motion="float" variant="card" />
                   </div>
                   <div className="product-tile__body">
                     <span className="product-tile__cat">{p.category}</span>
@@ -104,9 +80,9 @@ export function Home() {
         <div className="split__media">
           <BannerSlideshow
             slides={storySlides}
-            intervalMs={3800}
+            intervalMs={4000}
             mode="stage"
-            veil="soft"
+            veil="left"
             showDots={false}
           />
         </div>
@@ -157,7 +133,7 @@ export function Home() {
       <section className="cta-photo">
         <BannerSlideshow
           slides={exportSlides}
-          intervalMs={4000}
+          intervalMs={4200}
           mode="stage"
           veil="strong"
           showDots

@@ -72,7 +72,7 @@ export function Products() {
                         <span>{p.form}</span>
                         <span>{p.dose}</span>
                       </div>
-                      <span className="product-card__cta">Profili gör →</span>
+                      <span className="product-card__cta">Ürün profili →</span>
                     </div>
                   </article>
                 </Link>

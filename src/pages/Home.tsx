@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { brand, heroSlides, products } from "../data/products";
+import { brand, categories, heroSlides, products } from "../data/products";
 import { Reveal } from "../components/Reveal";
 import { HeroSlideshow } from "../components/HeroSlideshow";
 import { PhotoBanner } from "../components/PhotoBanner";
@@ -13,12 +13,12 @@ export function Home() {
       <section className="hero">
         <HeroSlideshow slides={heroSlides} />
         <div className="hero__content">
-          <img src={brand.logo} alt="" className="hero__logo anim-rise" />
-          <p className="hero__brand anim-rise anim-delay-1">{brand.name}</p>
-          <h1 className="hero__title anim-rise anim-delay-2">
+          <img src={brand.logo} alt={brand.name} className="hero__logo anim-rise" />
+          <h1 className="hero__brand anim-rise anim-delay-1">{brand.name}</h1>
+          <p className="hero__title anim-rise anim-delay-2">
             Sağlığınız için
             <em> net, orijinal</em> çözümler
-          </h1>
+          </p>
           <p className="hero__sub anim-rise anim-delay-3">
             Uzman eczacı formülleriyle vitamin ve takviye ürünlerini keşfedin.
           </p>
@@ -45,6 +45,25 @@ export function Home() {
       </section>
 
       <section className="section section--tight">
+        <div className="container">
+          <Reveal>
+            <p className="eyebrow">Kategoriler</p>
+            <h2 className="section-title">İhtiyacınıza göre seçin</h2>
+          </Reveal>
+          <div className="cat-grid">
+            {categories.map((c, i) => (
+              <Reveal key={c} delay={i * 50}>
+                <Link to={`/urunler?k=${encodeURIComponent(c)}`} className="cat-card">
+                  <span>{c}</span>
+                  <em>İncele →</em>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--mist">
         <div className="container band">
           <Reveal>
             <p className="eyebrow">Koleksiyon</p>
@@ -100,6 +119,29 @@ export function Home() {
             <Link to="/iletisim" className="btn btn--solid">
               Bizimle iletişime geçin
             </Link>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="stats">
+        <div className="container stats__grid">
+          <Reveal>
+            <div className="stats__item">
+              <strong>{products.length}+</strong>
+              <span>Formül</span>
+            </div>
+          </Reveal>
+          <Reveal delay={60}>
+            <div className="stats__item">
+              <strong>{categories.length}</strong>
+              <span>Kategori</span>
+            </div>
+          </Reveal>
+          <Reveal delay={120}>
+            <div className="stats__item">
+              <strong>TR</strong>
+              <span>Üretim & dağıtım</span>
+            </div>
           </Reveal>
         </div>
       </section>

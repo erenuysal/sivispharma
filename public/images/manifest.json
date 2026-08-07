@@ -1,0 +1,82 @@
+{
+  "logo": "/images/brand/logo-svg.svg",
+  "images": [
+    "/images/products/sivisfol-jpg.jpg",
+    "/images/products/omefol-jpg.jpg",
+    "/images/products/sivislact-jpg.jpg",
+    "/images/products/leydinol-jpg.jpg",
+    "/images/products/virinol-jpg.jpg",
+    "/images/products/stone-jpg.jpg",
+    "/images/products/procystin-jpg.jpg",
+    "/images/products/sivisfer-jpg.jpg",
+    "/images/products/cama-duo-jpg.jpg"
+  ],
+  "downloaded": [
+    {
+      "url": "https://www.sivispharma.com/images/logo.svg",
+      "local": "/images/brand/logo-svg.svg",
+      "bytes": 16644,
+      "logo": true
+    },
+    {
+      "url": "https://www.sivispharma.com/images/logo.svg\\",
+      "local": "/images/brand/logo-svg-1.svg",
+      "bytes": 16644,
+      "logo": true
+    },
+    {
+      "url": "https://www.sivispharma.com/images/products/sivisfol.jpg",
+      "local": "/images/products/sivisfol-jpg.jpg",
+      "bytes": 134431,
+      "logo": false
+    },
+    {
+      "url": "https://www.sivispharma.com/images/products/omefol.jpg",
+      "local": "/images/products/omefol-jpg.jpg",
+      "bytes": 147104,
+      "logo": false
+    },
+    {
+      "url": "https://www.sivispharma.com/images/products/sivislact.jpg",
+      "local": "/images/products/sivislact-jpg.jpg",
+      "bytes": 211588,
+      "logo": false
+    },
+    {
+      "url": "https://www.sivispharma.com/images/products/leydinol.jpg",
+      "local": "/images/products/leydinol-jpg.jpg",
+      "bytes": 173934,
+      "logo": false
+    },
+    {
+      "url": "https://www.sivispharma.com/images/products/virinol.jpg",
+      "local": "/images/products/virinol-jpg.jpg",
+      "bytes": 195777,
+      "logo": false
+    },
+    {
+      "url": "https://www.sivispharma.com/images/products/stone.jpg",
+      "local": "/images/products/stone-jpg.jpg",
+      "bytes": 220748,
+      "logo": false
+    },
+    {
+      "url": "https://www.sivispharma.com/images/products/procystin.jpg",
+      "local": "/images/products/procystin-jpg.jpg",
+      "bytes": 188689,
+      "logo": false
+    },
+    {
+      "url": "https://www.sivispharma.com/images/products/sivisfer.jpg",
+      "local": "/images/products/sivisfer-jpg.jpg",
+      "bytes": 177951,
+      "logo": false
+    },
+    {
+      "url": "https://www.sivispharma.com/images/products/cama-duo.jpg",
+      "local": "/images/products/cama-duo-jpg.jpg",
+      "bytes": 213660,
+      "logo": false
+    }
+  ]
+}

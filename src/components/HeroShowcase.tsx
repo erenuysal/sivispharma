@@ -18,25 +18,19 @@ export function HeroShowcase({ slides }: Props) {
   }, [slides]);
 
   return (
-    <section className="hero-pro">
-      <div className="hero-pro__bg" aria-hidden>
-        <div className="hero-pro__orb hero-pro__orb--a" />
-        <div className="hero-pro__orb hero-pro__orb--b" />
-        <div className="hero-pro__grain" />
-      </div>
-
-      <div className="hero-pro__grid">
-        <div className="hero-pro__copy">
-          <img src={brand.logo} alt={brand.name} className="hero-pro__logo anim-rise" />
-          <h1 className="hero-pro__brand anim-rise anim-delay-1">{brand.name}</h1>
-          <p className="hero-pro__title anim-rise anim-delay-2">
+    <section className="hero-clean">
+      <div className="hero-clean__inner">
+        <div className="hero-clean__copy">
+          <p className="eyebrow eyebrow--on-dark anim-rise">Orijinal formüller</p>
+          <h1 className="hero-clean__brand anim-rise anim-delay-1">{brand.name}</h1>
+          <p className="hero-clean__title anim-rise anim-delay-2">
             Sağlığınız için
             <em> net, orijinal</em> çözümler
           </p>
-          <p className="hero-pro__sub anim-rise anim-delay-3">
+          <p className="hero-clean__sub anim-rise anim-delay-3">
             Uzman eczacı formülleriyle vitamin ve takviye ürünlerini keşfedin.
           </p>
-          <div className="hero-pro__actions anim-rise anim-delay-3">
+          <div className="hero-clean__actions anim-rise anim-delay-3">
             <Link to="/urunler" className="btn btn--solid">
               Ürünleri Keşfet
             </Link>
@@ -46,19 +40,18 @@ export function HeroShowcase({ slides }: Props) {
           </div>
         </div>
 
-        <div className="hero-pro__stage" aria-hidden>
-          <div className="hero-pro__ring" />
-          {slides.map((src, i) => (
-            <div key={src} className={`hero-pro__slide ${i === index ? "is-active" : ""}`}>
-              <div className="packshot packshot--hero">
-                <div className="packshot__bloom" />
-                <img src={src} alt="" className="packshot__img" />
-                <div className="packshot__fade" />
-                <div className="packshot__reflect" />
-              </div>
-            </div>
-          ))}
-          <div className="hero-pro__dots">
+        <div className="hero-clean__visual">
+          <div className="hero-clean__tray">
+            {slides.map((src, i) => (
+              <img
+                key={src}
+                src={src}
+                alt=""
+                className={`hero-clean__product ${i === index ? "is-active" : ""}`}
+              />
+            ))}
+          </div>
+          <div className="hero-clean__dots" aria-hidden>
             {slides.map((_, i) => (
               <span key={i} className={i === index ? "is-active" : ""} />
             ))}

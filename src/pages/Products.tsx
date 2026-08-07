@@ -62,7 +62,7 @@ export function Products() {
                 <Link to={`/urun/${p.slug}`} className="product-card-link">
                   <article className="product-card">
                     <div className="product-card__banner">
-                      <PhotoBanner src={p.image} motion="float" variant="card" />
+                      <PhotoBanner src={p.image} />
                       <span>{p.category}</span>
                     </div>
                     <div className="product-card__body">

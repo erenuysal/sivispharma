@@ -55,7 +55,7 @@ export function Home() {
               <Reveal key={p.slug} delay={i * 70}>
                 <Link to={`/urun/${p.slug}`} className="product-tile">
                   <div className="product-tile__media">
-                    <PhotoBanner src={p.image} motion="float" variant="card" />
+                    <PhotoBanner src={p.image} />
                   </div>
                   <div className="product-tile__body">
                     <span className="product-tile__cat">{p.category}</span>
@@ -76,15 +76,9 @@ export function Home() {
         </div>
       </section>
 
-      <section className="split">
+      <section className="split split--clean">
         <div className="split__media">
-          <BannerSlideshow
-            slides={storySlides}
-            intervalMs={4000}
-            mode="stage"
-            veil="left"
-            showDots={false}
-          />
+          <BannerSlideshow slides={storySlides} intervalMs={4000} showDots={false} surface="panel" />
         </div>
         <div className="split__copy">
           <Reveal>
@@ -130,22 +124,19 @@ export function Home() {
         </div>
       </section>
 
-      <section className="cta-photo">
-        <BannerSlideshow
-          slides={exportSlides}
-          intervalMs={4200}
-          mode="stage"
-          veil="strong"
-          showDots
-        />
-        <div className="cta-photo__content">
+      <section className="cta-band">
+        <div className="cta-band__visual">
+          <BannerSlideshow slides={exportSlides} intervalMs={4200} showDots surface="panel" />
+        </div>
+        <div className="cta-band__copy">
           <Reveal>
+            <p className="eyebrow">İhracat</p>
             <h2 className="section-title">Ürünlerimizi ülkenizde dağıtmak ister misiniz?</h2>
             <p className="section-sub">
               İhracat ekibimizle doğrudan görüşün — size uygun iş birliği modelini birlikte
               kuralım.
             </p>
-            <a href="mailto:turkuazessen@sivispharma.com" className="btn btn--solid btn--light">
+            <a href="mailto:turkuazessen@sivispharma.com" className="btn btn--solid">
               İhracat talebi gönder
             </a>
           </Reveal>

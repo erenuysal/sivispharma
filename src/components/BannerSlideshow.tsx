@@ -3,20 +3,18 @@ import { useEffect, useState } from "react";
 type Props = {
   slides: string[];
   intervalMs?: number;
-  /** stage = floating packshot; ambient = soft background wash */
-  mode?: "stage" | "ambient";
-  veil?: "soft" | "strong" | "left" | "none";
   className?: string;
   showDots?: boolean;
+  /** panel = light studio tray; bare = just images on current bg */
+  surface?: "panel" | "bare";
 };
 
 export function BannerSlideshow({
   slides,
-  intervalMs = 4800,
-  mode = "stage",
-  veil = "soft",
+  intervalMs = 4500,
   className = "",
   showDots = true,
+  surface = "panel",
 }: Props) {
   const [index, setIndex] = useState(0);
 
@@ -29,23 +27,14 @@ export function BannerSlideshow({
   }, [slides, intervalMs]);
 
   return (
-    <div className={`banner-show banner-show--${mode} ${className}`}>
-      <div className="banner-show__glow" aria-hidden />
-      <div className="banner-show__stage" aria-hidden>
-        {slides.map((src, i) => (
-          <div key={src} className={`banner-show__slide ${i === index ? "is-active" : ""}`}>
-            <div className="packshot">
-              <div className="packshot__bloom" />
-              <img src={src} alt="" className="packshot__img" />
-              <div className="packshot__fade" />
-              <div className="packshot__reflect" />
-            </div>
-          </div>
-        ))}
-        {veil !== "none" ? <div className={`banner-show__veil banner-show__veil--${veil}`} /> : null}
-      </div>
+    <div className={`shot-show shot-show--${surface} ${className}`}>
+      {slides.map((src, i) => (
+        <div key={src} className={`shot-show__slide ${i === index ? "is-active" : ""}`}>
+          <img src={src} alt="" className="shot-show__img" />
+        </div>
+      ))}
       {showDots && slides.length > 1 ? (
-        <div className="banner-show__dots" role="tablist" aria-label="Banner slaytları">
+        <div className="shot-show__dots" role="tablist" aria-label="Ürün slaytları">
           {slides.map((_, i) => (
             <button
               key={i}

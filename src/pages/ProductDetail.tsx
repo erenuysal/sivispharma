@@ -29,6 +29,7 @@ export function ProductDetail() {
               <div className="packshot packshot--profile">
                 <div className="packshot__bloom" />
                 <img src={product.image} alt={product.name} className="packshot__img profile__img" />
+                <div className="packshot__fade" />
                 <div className="packshot__reflect" />
               </div>
             </div>

@@ -28,6 +28,7 @@ export function PhotoBanner({
             loading="lazy"
             decoding="async"
           />
+          <div className="packshot__fade packshot__fade--card" />
         </div>
       </div>
     );

@@ -37,6 +37,7 @@ export function BannerSlideshow({
             <div className="packshot">
               <div className="packshot__bloom" />
               <img src={src} alt="" className="packshot__img" />
+              <div className="packshot__fade" />
               <div className="packshot__reflect" />
             </div>
           </div>

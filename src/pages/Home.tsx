@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import { brand, categories, heroSlides, products } from "../data/products";
 import { Reveal } from "../components/Reveal";
 import { HeroSlideshow } from "../components/HeroSlideshow";
+import { BannerSlideshow } from "../components/BannerSlideshow";
 import { PhotoBanner } from "../components/PhotoBanner";
-import { asset } from "../lib/asset";
 
 const featured = products.slice(0, 6);
+const storySlides = heroSlides.slice(0, 5);
+const exportSlides = [...heroSlides].reverse().slice(0, 6);
 
 export function Home() {
   return (
@@ -100,7 +102,13 @@ export function Home() {
 
       <section className="split">
         <div className="split__media">
-          <PhotoBanner src={asset("images/products/sivislact.jpg")} motion="kenburns" darken="soft" />
+          <BannerSlideshow
+            slides={storySlides}
+            intervalMs={3800}
+            mode="stage"
+            veil="soft"
+            showDots={false}
+          />
         </div>
         <div className="split__copy">
           <Reveal>
@@ -147,7 +155,13 @@ export function Home() {
       </section>
 
       <section className="cta-photo">
-        <PhotoBanner src={asset("images/products/cama-duo.jpg")} motion="kenburns" darken="strong" />
+        <BannerSlideshow
+          slides={exportSlides}
+          intervalMs={4000}
+          mode="stage"
+          veil="strong"
+          showDots
+        />
         <div className="cta-photo__content">
           <Reveal>
             <h2 className="section-title">Ürünlerimizi ülkenizde dağıtmak ister misiniz?</h2>

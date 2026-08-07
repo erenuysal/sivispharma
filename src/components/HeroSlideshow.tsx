@@ -1,32 +1,20 @@
-import { useEffect, useState } from "react";
+import { BannerSlideshow } from "./BannerSlideshow";
 
 type Props = {
   slides: string[];
   intervalMs?: number;
 };
 
+/** Hero uses stage mode so packshots read as wide banners, not extreme crops. */
 export function HeroSlideshow({ slides, intervalMs = 4500 }: Props) {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    if (slides.length < 2) return;
-    const id = window.setInterval(() => {
-      setIndex((i) => (i + 1) % slides.length);
-    }, intervalMs);
-    return () => window.clearInterval(id);
-  }, [slides, intervalMs]);
-
   return (
-    <div className="hero-slideshow" aria-hidden>
-      {slides.map((src, i) => (
-        <img
-          key={src}
-          src={src}
-          alt=""
-          className={`hero-slideshow__slide ${i === index ? "is-active" : ""}`}
-        />
-      ))}
-      <div className="hero-slideshow__veil" />
-    </div>
+    <BannerSlideshow
+      slides={slides}
+      intervalMs={intervalMs}
+      mode="stage"
+      veil="soft"
+      showDots
+      className="hero-slideshow"
+    />
   );
 }

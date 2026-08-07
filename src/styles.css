@@ -340,21 +340,18 @@ textarea {
 
 .packshot__bloom {
   position: absolute;
-  inset: 8% 12%;
+  inset: 18% 20%;
   border-radius: 50%;
-  background:
-    radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.2) 0%, transparent 55%),
-    radial-gradient(circle at 50% 55%, rgba(200, 16, 46, 0.28) 0%, transparent 62%);
-  filter: blur(18px);
+  background: radial-gradient(circle at 50% 50%, rgba(200, 16, 46, 0.32) 0%, transparent 68%);
+  filter: blur(28px);
   z-index: 0;
   animation: bloom-pulse 7s var(--ease) infinite alternate;
 }
 
 .packshot__bloom--soft {
-  background:
-    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.55) 0%, transparent 65%);
-  filter: blur(22px);
-  inset: 12%;
+  background: radial-gradient(circle at 50% 50%, rgba(200, 16, 46, 0.22) 0%, transparent 70%);
+  filter: blur(24px);
+  inset: 20%;
 }
 
 .packshot__img {
@@ -389,18 +386,22 @@ textarea {
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background:
-    radial-gradient(ellipse 48% 44% at 50% 46%, transparent 0%, transparent 42%, rgba(10, 10, 10, 0.55) 62%, #0a0a0a 78%),
-    linear-gradient(180deg, rgba(10, 10, 10, 0.15), transparent 30%, transparent 70%, rgba(10, 10, 10, 0.35));
+  background: radial-gradient(
+    ellipse 46% 42% at 50% 46%,
+    transparent 0%,
+    transparent 38%,
+    rgba(10, 10, 10, 0.75) 58%,
+    #0a0a0a 72%
+  );
 }
 
 .packshot__fade--card {
   background: radial-gradient(
-    ellipse 52% 48% at 50% 48%,
+    ellipse 50% 46% at 50% 48%,
     transparent 0%,
-    transparent 40%,
-    rgba(12, 12, 12, 0.5) 62%,
-    #0c0c0c 80%
+    transparent 36%,
+    rgba(12, 12, 12, 0.7) 58%,
+    #0c0c0c 76%
   );
 }
 

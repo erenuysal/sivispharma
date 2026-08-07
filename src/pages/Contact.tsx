@@ -1,4 +1,3 @@
-import { Reveal } from "../components/Reveal";
 import { brand } from "../data/products";
 
 export function Contact() {
@@ -17,58 +16,54 @@ export function Contact() {
 
       <section className="section section--tight-top">
         <div className="container contact-grid">
-          <Reveal>
-            <div className="contact-card">
-              <img src={brand.logo} alt="" className="inline-logo" />
-              <h2>Doğrudan hatlar</h2>
-              <a href="mailto:info@sivispharma.com">info@sivispharma.com</a>
-              <a href="mailto:turkuazessen@sivispharma.com">turkuazessen@sivispharma.com</a>
-              <a href="mailto:mesuta@sivispharma.com">mesuta@sivispharma.com</a>
-              <a href="tel:+905513658489" className="contact-phone">
-                +90 551 365 84 89
-              </a>
-              <p className="mute">Turkuaz Essen · Sivis Pharma</p>
-            </div>
-          </Reveal>
-          <Reveal delay={80}>
-            <form
-              className="contact-form"
-              onSubmit={(e) => {
-                e.preventDefault();
-                const fd = new FormData(e.currentTarget);
-                const subject = encodeURIComponent(String(fd.get("subject") || "Sivis iletişimi"));
-                const body = encodeURIComponent(
-                  `Ad: ${fd.get("name")}\nFirma: ${fd.get("company")}\n\n${fd.get("message")}`,
-                );
-                window.location.href = `mailto:info@sivispharma.com?subject=${subject}&body=${body}`;
-              }}
-            >
-              <label>
-                Ad Soyad
-                <input name="name" required placeholder="Adınız" />
-              </label>
-              <label>
-                Firma / Eczane
-                <input name="company" placeholder="Opsiyonel" />
-              </label>
-              <label>
-                Konu
-                <select name="subject" defaultValue="Ürün bilgisi">
-                  <option>Ürün bilgisi</option>
-                  <option>İhracat / Distribütörlük</option>
-                  <option>Eczane siparişi</option>
-                  <option>Diğer</option>
-                </select>
-              </label>
-              <label>
-                Mesaj
-                <textarea name="message" required rows={5} placeholder="Nasıl yardımcı olalım?" />
-              </label>
-              <button type="submit" className="btn btn--solid">
-                E-posta ile gönder
-              </button>
-            </form>
-          </Reveal>
+          <div className="contact-card anim-rise">
+            <img src={brand.logo} alt="" className="inline-logo" />
+            <h2>Doğrudan hatlar</h2>
+            <a href="mailto:info@sivispharma.com">info@sivispharma.com</a>
+            <a href="mailto:turkuazessen@sivispharma.com">turkuazessen@sivispharma.com</a>
+            <a href="mailto:mesuta@sivispharma.com">mesuta@sivispharma.com</a>
+            <a href="tel:+905513658489" className="contact-phone">
+              +90 551 365 84 89
+            </a>
+            <p className="mute">Turkuaz Essen · Sivis Pharma</p>
+          </div>
+          <form
+            className="contact-form anim-rise anim-delay-1"
+            onSubmit={(e) => {
+              e.preventDefault();
+              const fd = new FormData(e.currentTarget);
+              const subject = encodeURIComponent(String(fd.get("subject") || "Sivis iletişimi"));
+              const body = encodeURIComponent(
+                `Ad: ${fd.get("name")}\nFirma: ${fd.get("company")}\n\n${fd.get("message")}`,
+              );
+              window.location.href = `mailto:info@sivispharma.com?subject=${subject}&body=${body}`;
+            }}
+          >
+            <label>
+              Ad Soyad
+              <input name="name" required placeholder="Adınız" autoComplete="name" />
+            </label>
+            <label>
+              Firma / Eczane
+              <input name="company" placeholder="Opsiyonel" autoComplete="organization" />
+            </label>
+            <label>
+              Konu
+              <select name="subject" defaultValue="Ürün bilgisi">
+                <option>Ürün bilgisi</option>
+                <option>İhracat / Distribütörlük</option>
+                <option>Eczane siparişi</option>
+                <option>Diğer</option>
+              </select>
+            </label>
+            <label>
+              Mesaj
+              <textarea name="message" required rows={5} placeholder="Nasıl yardımcı olalım?" />
+            </label>
+            <button type="submit" className="btn btn--solid">
+              E-posta ile gönder
+            </button>
+          </form>
         </div>
       </section>
     </>

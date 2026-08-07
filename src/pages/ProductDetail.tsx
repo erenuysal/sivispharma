@@ -24,13 +24,13 @@ export function ProductDetail() {
         </nav>
 
         <section className="profile">
-          <Reveal className="profile__visual">
+          <div className="profile__visual anim-rise">
             <div className="profile__shot">
               <img src={product.image} alt={product.name} className="profile__img" />
             </div>
-          </Reveal>
+          </div>
 
-          <Reveal delay={80} className="profile__info">
+          <div className="profile__info anim-rise anim-delay-1">
             <span className="profile__cat">{product.category}</span>
             <h1 className="profile__name">{product.name}</h1>
             <p className="profile__tagline">{product.tagline}</p>
@@ -73,7 +73,7 @@ export function ProductDetail() {
                 Tüm ürünler
               </Link>
             </div>
-          </Reveal>
+          </div>
         </section>
       </div>
 

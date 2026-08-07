@@ -1,17 +1,23 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { brand } from "../data/products";
 
 export function Nav() {
+  const { pathname } = useLocation();
+  const onHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 16);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -20,11 +26,21 @@ export function Nav() {
     };
   }, [open]);
 
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  const solid = !onHome || scrolled || open;
+
   return (
-    <header className={`nav ${scrolled ? "nav--scrolled" : ""}`}>
+    <header className={`nav ${solid ? "nav--scrolled" : ""} ${open ? "nav--open" : ""}`}>
       <div className="nav__inner">
         <Link to="/" className="nav__brand" onClick={() => setOpen(false)}>
-          <img src={brand.logo} alt="" className="nav__logo" width={36} height={36} />
+          <img src={brand.logo} alt={brand.name} className="nav__logo" width={140} height={40} />
           <span className="nav__name">{brand.name}</span>
         </Link>
 
@@ -50,6 +66,7 @@ export function Nav() {
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
         >
+          <span />
           <span />
           <span />
         </button>

@@ -12,18 +12,33 @@ export function Reveal({ children, className = "", delay = 0 }: Props) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    const show = () => el.classList.add("is-visible");
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      show();
+      return;
+    }
+
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          el.classList.add("is-visible");
+          show();
           io.unobserve(el);
         }
       },
-      { threshold: 0.16, rootMargin: "0px 0px -8% 0px" },
+      { threshold: 0.08, rootMargin: "0px 0px 12% 0px" },
     );
     io.observe(el);
-    return () => io.disconnect();
-  }, []);
+
+    // Fallback: never leave content permanently hidden
+    const fallback = window.setTimeout(show, 1800 + delay);
+
+    return () => {
+      io.disconnect();
+      window.clearTimeout(fallback);
+    };
+  }, [delay]);
 
   return (
     <div

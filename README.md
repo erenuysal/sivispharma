@@ -11,9 +11,11 @@ npm run dev
 
 ## GitHub Pages
 
-Canlı demo: https://erenuysal.github.io/sivispharma/
+**Müşteri linki:** https://erenuysal.github.io/sivispharma/
 
 ```bash
+# Yeniden yayın
+$env:VITE_BASE="/sivispharma/"   # PowerShell
 npm run build
-# CI: VITE_BASE=/sivispharma/ ile otomatik deploy
+npx gh-pages -d dist -b gh-pages
 ```
